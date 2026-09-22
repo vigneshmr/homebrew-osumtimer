@@ -4,6 +4,7 @@ Homebrew tap for [OsumTimer](https://github.com/vigneshmr/osumtimer), a menu bar
 
 ```sh
 brew tap vigneshmr/osumtimer
+brew trust vigneshmr/osumtimer
 brew install osumtimer
 ```
 

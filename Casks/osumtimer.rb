@@ -1,6 +1,6 @@
 cask "osumtimer" do
   version "1.0.0"
-  sha256 "b0c13a479b9e9c93f89df0a9ce7bdf55561e2ce72ca3ad8ea66e69b8b9363ef0"
+  sha256 "aa26b9861000fd0b6d97cc1743b446e69dbae506b9aabe8e669ea46cbfed6dda"
 
   url "https://github.com/vigneshmr/osumtimer/releases/download/v#{version}/OsumTimer-#{version}.dmg"
   name "OsumTimer"
@@ -12,17 +12,15 @@ cask "osumtimer" do
     strategy :github_latest
   end
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "OsumTimer.app"
 
   # The bundle is ad-hoc signed, not notarized, so Gatekeeper would refuse a
   # quarantined copy outright. Stripping the flag is what the user would do by
   # hand anyway.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/OsumTimer.app"],
-                   sudo: false
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/OsumTimer.app"]
   end
 
   uninstall quit: "com.osumtimer.OsumTimer"
