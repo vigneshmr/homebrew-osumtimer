@@ -1,6 +1,6 @@
 cask "osumtimer" do
-  version "1.1.1"
-  sha256 "b74beaa9d60413cf90d4d327e6e3cd0a20cf6ab115e6613e9ca32a3ca1290dc1"
+  version "1.1.2"
+  sha256 "49f1ece017612ee7db8536dabeb6c60c2a8ebb5cba32b7f0d08ea18beec62d5a"
 
   url "https://github.com/vigneshmr/osumtimer/releases/download/v#{version}/OsumTimer-#{version}.dmg"
   name "OsumTimer"
